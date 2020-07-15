@@ -1,0 +1,48 @@
+.content {
+  margin: 15px;
+  padding: 50px;
+  align-items: center;
+}
+.container{
+  margin: 20px;
+  padding: 20px;
+  width: 600px;
+  background-color: whitesmoke;
+}
+.contentmenu{
+  margin: 5px;
+  float: right;
+  top: 200px;
+}
+.contentitem{
+  padding: 5px;
+  width: 100vh;
+}
+.menu{
+  margin: 8px;
+  float: right;
+} 
+
+.contentItem{
+  margin: 8px;
+  padding: 10px;
+}
+.itemTodo{
+ background-color: white;
+ margin: 10px;
+ border-left: 4px solid #410537;
+} 
+.contentItemTodo{
+  padding: 4px;
+  /* width: 100vh; */
+  margin-left: 36px;
+}
+.contentButtonTodo{
+  margin-left: 169px;
+}
+textarea {
+  width: 50vh;
+  overflow: auto;
+  resize: vertical;
+  margin-top: 42px;
+}
