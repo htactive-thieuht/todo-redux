@@ -7,6 +7,7 @@ import { Checkbox } from 'antd';
 import { addTodoList } from '../actions/addAction'
 import { deleteTodo } from '../actions/addAction'
 import { updateTodo } from '../actions/addAction'
+import { viewCheck } from '../actions/addAction'
 
 const randomNumber = () => {
     return 1000 + Math.trunc((Math.random() * 900));
@@ -20,18 +21,34 @@ function Homepage(props) {
     const [mapTodoList, setMapTodoList] = useState(todoList)
     useEffect(() => {
         setMapTodoList(todoList);
-    },[todoList])
+    }, [todoList])
     const dispatch = useDispatch();
 
-    function onChange(e) {
-        console.log(`checked = ${e.target.checked}`);
+    const onChange = (value, id) => {
+        console.log(`checkedsádasda = ${value}`);
+        setMapTodoList(mapTodoList.map(item => {
+            if (item.id===id) {
+                return {...item, checked: value}
+            }
+            return item
+        }))
+    }
+    const Uncheck =()=>{
+        //console.log(mapTodoList.filter(item => item.checked == false), 'sssadsadsadsadsa');
+        setMapTodoList(mapTodoList.filter(item => item.checked == false))
+    }
+    const checkComplete = () => {
+       //console.log(mapTodoList, mapTodoList.filter(item => item.checked), 'sssadsadsadsadsa');
+        setMapTodoList(mapTodoList.filter(item => item.checked))
     }
     const handleAddTodoClick = (e) => {
         const newId = randomNumber()
         const newtodo = {
             id: newId,
             title: value,
-            isEdit: false
+            isEdit: false,
+            checked: false
+
         }
         if (e.key === 'Enter') {
             const action = addTodoList(newtodo);
@@ -57,10 +74,11 @@ function Homepage(props) {
         })
         setMapTodoList(list);
     }
-    const handlecheck=()=>{ 
+    const displayAllTask = () => {
+        console.log(setMapTodoList(todoList),)
+        setMapTodoList(todoList);
     }
-    const handleUncheck=()=>{  
-    }
+
     return (
         <div className="content">
             <div className="container" >
@@ -76,8 +94,8 @@ function Homepage(props) {
                     <Col span={24}>
                         <div className="menu" >
                             <a onClick={displayAllTask}> All </a>
-                            <button onClick={handleUncheck}>Uncompleted</button>
-                            <button onClick={handlecheck}>Completed</button>
+                            <button onClick ={Uncheck}>Uncompleted</button>
+                            <button onClick={checkComplete} >Completed</button>
                         </div>
                     </Col>
                 </Row>
@@ -85,7 +103,10 @@ function Homepage(props) {
                     <Row className="itemTodo" key={item.id}>
                         <div className="contentitem" >
                             <Row>
-                                <Checkbox onChange={onChange}> </ Checkbox>7/4/2020
+                                <Checkbox
+                                    onChange={(e) => onChange(e.target.checked, item.id)}
+                                    defaultChecked={item.checked}> 
+                                    </ Checkbox>7/4/2020
                             </Row>
                             <Row>
                                 <Col span={12}>
@@ -103,7 +124,6 @@ function Homepage(props) {
                                             <strong> {item.title}</strong>
                                         </div>
                                     }
-
                                 </Col>
                                 <Col span={12}>
                                     <div className="contentButtonTodo">

@@ -3,6 +3,7 @@
 const initialState = {
     list: [],
     activeId: null,
+    viewCheckbox: false
 }
 const todoReducer = (state = initialState, action) => {
     switch (action.type) {
