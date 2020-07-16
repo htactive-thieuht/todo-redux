@@ -39,6 +39,13 @@ const todoReducer = (state = initialState, action) => {
                 list: newList,
             }
         }
+        case 'CHECK_COMPLETED':{
+            const newList = [...state.list.filter(check =>check.id === action.id )];
+            return {
+                ...state,
+                list :newList
+            }
+        }
         default:
             return state;
     }

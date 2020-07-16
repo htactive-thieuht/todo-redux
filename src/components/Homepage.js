@@ -8,6 +8,7 @@ import { addTodoList } from '../actions/addAction'
 import { deleteTodo } from '../actions/addAction'
 import { updateTodo } from '../actions/addAction'
 import { viewCheck } from '../actions/addAction'
+import MenuPage from './Menu'
 
 const randomNumber = () => {
     return 1000 + Math.trunc((Math.random() * 900));
@@ -38,8 +39,10 @@ function Homepage(props) {
         setMapTodoList(mapTodoList.filter(item => item.checked == false))
     }
     const checkComplete = () => {
+        console.log(mapTodoList, '???');
        //console.log(mapTodoList, mapTodoList.filter(item => item.checked), 'sssadsadsadsadsa');
         setMapTodoList(mapTodoList.filter(item => item.checked))
+        
     }
     const handleAddTodoClick = (e) => {
         const newId = randomNumber()
@@ -81,7 +84,13 @@ function Homepage(props) {
 
     return (
         <div className="content">
+            <Row>
+              <Col span={8}>
+                    <MenuPage />
+                </Col>
+                <Col span={16}>
             <div className="container" >
+               
                 <Row>
                     <Col span={24}>
                         <Input placeholder="Type here for add a new todo"
@@ -108,8 +117,9 @@ function Homepage(props) {
                                     defaultChecked={item.checked}> 
                                     </ Checkbox>7/4/2020
                             </Row>
+                            <div>
                             <Row>
-                                <Col span={12}>
+                                <Col span={20}>
                                     {item.isEdit ?
                                         // isEdit = true
                                         <div className="contentItemTodo">
@@ -125,7 +135,7 @@ function Homepage(props) {
                                         </div>
                                     }
                                 </Col>
-                                <Col span={12}>
+                                <Col span={4}>
                                     <div className="contentButtonTodo">
                                         {item.isEdit ?
                                             <button><CheckOutlined onClick={() => handleUpdate(item.id)} /></button>
@@ -136,10 +146,13 @@ function Homepage(props) {
                                     </div>
                                 </Col>
                             </Row>
+                            </div>
                         </div>
                     </Row>
                 ))}
             </div>
+            </Col>
+            </Row>
         </div>
     )
 }

@@ -6,7 +6,7 @@
 .container{
   margin: 20px;
   padding: 20px;
-  width: 600px;
+  width: 100%;
   background-color: whitesmoke;
 }
 .contentmenu{
@@ -14,9 +14,9 @@
   float: right;
   top: 200px;
 }
-.contentitem{
+.contentitem {
   padding: 5px;
-  width: 100vh;
+  width: 100%;
 }
 .menu{
   margin: 8px;
@@ -34,15 +34,22 @@
 } 
 .contentItemTodo{
   padding: 4px;
-  /* width: 100vh; */
   margin-left: 36px;
 }
 .contentButtonTodo{
-  margin-left: 169px;
+  margin-left: 123px;
 }
 textarea {
-  width: 50vh;
+  width: 100vh;
   overflow: auto;
   resize: vertical;
   margin-top: 42px;
+}
+.ant-menu-root.ant-menu-vertical, .ant-menu-root.ant-menu-vertical-left, .ant-menu-root.ant-menu-vertical-right, .ant-menu-root.ant-menu-inline {
+  /* -webkit-box-shadow: none; */
+  box-shadow: none;
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 100vh;
 }
