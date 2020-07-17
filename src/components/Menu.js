@@ -7,31 +7,8 @@ const { SubMenu } = Menu;
 
 
 function MenuPage() {
-
-
-    //     rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-
-    //   state = {
-    //     openKeys: ['sub1'],
-    //   };
-
-    //   onOpenChange = openKeys => {
-    //     const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
-    //     if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-    //       this.setState({ openKeys });
-    //     } else {
-    //       this.setState({
-    //         openKeys: latestOpenKey ? [latestOpenKey] : [],
-    //       });
-    //     }
-    //   };
-
     return (
         <Menu 
-            // mode="inline"
-            // openKeys={this.state.openKeys}
-            // onOpenChange={this.onOpenChange}
-            // style={{ width: 256 }}
         >
             <SubMenu
                 key="sub1"

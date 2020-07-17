@@ -53,3 +53,17 @@ textarea {
   width: 100%;
   height: 100vh;
 }
+
+.itemTodo:nth-child(3n+1) {
+  border-left: 4px solid red;
+}
+
+.itemTodo:nth-child(3n+2) {
+  border-left: 4px solid #410537;
+}
+.itemTodo:nth-child(3n+3) {
+  border-left: 4px solid orange;
+}
+.itemTodo:nth-child(4n+3) {
+  border-left: 4px solid blue;
+}

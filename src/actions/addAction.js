@@ -25,3 +25,13 @@ export const updateTodo = (id, title) => {
         }
     }
 }
+export const viewCheck = (id, checked) => {
+    return{
+        type:'CHECK_COMPLETED',
+        payload: {
+            id, 
+            checked
+        }
+    }
+
+}

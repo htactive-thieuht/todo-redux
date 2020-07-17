@@ -2,8 +2,8 @@
 
 const initialState = {
     list: [],
-    activeId: null,
-    viewCheckbox: false
+    activeId: null
+    // viewCheckbox: false
 }
 const todoReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -40,7 +40,14 @@ const todoReducer = (state = initialState, action) => {
             }
         }
         case 'CHECK_COMPLETED':{
-            const newList = [...state.list.filter(check =>check.id === action.id )];
+            let newList = [];
+            let { payload } = action
+            newList = (state.list || []).map(item => {
+                if (item.id === payload.id) {
+                    return { ...item, checked: payload.checked }
+                }
+                return item
+            })
             return {
                 ...state,
                 list :newList
