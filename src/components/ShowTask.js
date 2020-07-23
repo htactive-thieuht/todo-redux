@@ -5,11 +5,12 @@ import { EditOutlined, CheckOutlined } from '@ant-design/icons';
 import { Row, Col } from 'antd';
 import { Checkbox } from 'antd';
 import { updateTodo } from '../actions/addAction'
+import { deleteTodo } from '../actions/addAction'
 
 ShowTask.prototype = {}
 
 function ShowTask(props) {
-	const { mapTodoList, onChange, handledelete } = props
+	const { mapTodoList, onChange } = props
 	const [TodoList, setTodoList] = useState(mapTodoList)
 	useEffect(() => {
 		setTodoList(mapTodoList);
@@ -20,6 +21,10 @@ function ShowTask(props) {
 		const action = updateTodo(id, textArea);
 		dispatch(action);
 	}
+	const handledelete = (id) => {
+        const action = deleteTodo(id);
+        dispatch(action)
+    }
 	const handleTogleTextArea = id => {
 		const list = (TodoList || []).map(item => {
 			if (item.id === id) {
@@ -30,6 +35,7 @@ function ShowTask(props) {
 		})
 		setTodoList(list);
 	}
+
 	return (
 		<Row>
 			{TodoList.map((item) =>

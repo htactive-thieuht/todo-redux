@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Input, TextArea } from 'antd';
-import { EditOutlined, CheckOutlined,UnorderedListOutlined,BellOutlined,UserSwitchOutlined, WechatOutlined,ShoppingCartOutlined} from '@ant-design/icons';
+import { Row, Col, Input} from 'antd';
+import { UnorderedListOutlined,BellOutlined,UserSwitchOutlined, WechatOutlined,ShoppingCartOutlined} from '@ant-design/icons';
 import '../App.css'
-import { Checkbox } from 'antd';
 import { addTodoList } from '../actions/addAction'
-import { deleteTodo } from '../actions/addAction'
-import { updateTodo } from '../actions/addAction'
 import { viewCheck } from '../actions/addAction'
 import MenuPage from './Menu'
 import Tab from './Tab'
@@ -20,7 +17,6 @@ Homepage.prototype = {}
 function Homepage(props) {
     const [value, setValue] = useState("");
     const todoList = useSelector(state => state.todo.list)
-    // const [textArea, setTextArea] = useState("")
     const [mapTodoList, setMapTodoList] = useState(todoList)
     useEffect(() => {
         setMapTodoList(todoList);
@@ -44,13 +40,8 @@ function Homepage(props) {
                 const action = addTodoList(newtodo);
                 dispatch(action)
                 setValue("")
-            }
-           
+            } 
         }
-    }
-    const handledelete = (id) => {
-        const action = deleteTodo(id);
-        dispatch(action)
     }
     return (
         <div className="content">
@@ -94,7 +85,6 @@ function Homepage(props) {
                                     <Tab 
                                         mapTodoList ={mapTodoList}
                                         onChange={onChange}
-                                        handledelete={handledelete}
                                         />
                                 </div>
                         </Row>

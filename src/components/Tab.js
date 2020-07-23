@@ -10,27 +10,24 @@ function callback(key) {
 }
 Tab.prototype = {}
 function Tab(props) {
-	const { mapTodoList, onChange, handledelete } = props
+	const { mapTodoList, onChange } = props
 	return (
 		<Tabs defaultActiveKey="1" onChange={callback} type="card">
 			<TabPane tab="All" key="1" >
 				<ShowTask
 					mapTodoList={mapTodoList}
-					onChange={onChange}
-					handledelete={handledelete} />
+					onChange={onChange} />
 			</TabPane>
 			<TabPane tab="Uncompleted" key="3" >
 				<ShowTask
 					mapTodoList={mapTodoList.filter(item => !item.checked)}
 					onChange={onChange}
-					handledelete={handledelete}
 				/>
 			</TabPane>
 			<TabPane tab="Completed" key="5">
 				<ShowTask
 					mapTodoList={mapTodoList.filter(item => item.checked)}
-					onChange={onChange}
-					handledelete={handledelete} />
+					onChange={onChange}/>
 			</TabPane>
 		</Tabs>
 	)
