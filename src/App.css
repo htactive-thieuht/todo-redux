@@ -1,69 +1,38 @@
-.content {
-  margin: 15px;
-  padding: 50px;
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-}
-.container{
-  margin: 20px;
-  padding: 20px;
-  width: 100%;
-  background-color: whitesmoke;
-}
-.contentmenu{
-  margin: 5px;
-  float: right;
-  top: 200px;
-}
-.contentitem {
-  padding: 5px;
-  width: 100%;
-}
-.menu{
-  margin: 8px;
-  float: right;
-} 
-
-.contentItem{
-  margin: 8px;
-  padding: 10px;
-}
-.itemTodo{
- background-color: white;
- margin: 10px;
- border-left: 4px solid #410537;
-} 
-.contentItemTodo{
-  padding: 4px;
-  margin-left: 36px;
-}
-.contentButtonTodo{
-  margin-left: 123px;
-}
-textarea {
-  width: 100vh;
-  overflow: auto;
-  resize: vertical;
-  margin-top: 42px;
-}
-.ant-menu-root.ant-menu-vertical, .ant-menu-root.ant-menu-vertical-left, .ant-menu-root.ant-menu-vertical-right, .ant-menu-root.ant-menu-inline {
-  /* -webkit-box-shadow: none; */
-  box-shadow: none;
-  background-color: black;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
   color: white;
-  width: 100%;
-  height: 100vh;
 }
 
-.itemTodo:nth-child(3n+1) {
-  border-left: 4px solid red;
+.App-link {
+  color: #61dafb;
 }
 
-.itemTodo:nth-child(3n+2) {
-  border-left: 4px solid #410537;
-}
-.itemTodo:nth-child(3n+3) {
-  border-left: 4px solid orange;
-}
-.itemTodo:nth-child(4n+3) {
-  border-left: 4px solid blue;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
