@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu } from 'antd';
 import '../App.css'
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import {useSelector,useDispatch} from 'react-redux'
 const { SubMenu } = Menu;
 
 
@@ -15,7 +16,7 @@ function MenuPage() {
                 title={
                     <span>
                         <MailOutlined />
-                        <span>Navigation One</span>
+                        <span>Email</span>
                     </span>
                 }
             >
@@ -38,6 +39,14 @@ function MenuPage() {
                 <Menu.Item key="11">Option 11</Menu.Item>
                 <Menu.Item key="12">Option 12</Menu.Item>
             </SubMenu>
+            <SubMenu key="sub5" icon={<AppstoreOutlined />} title="Navigation Two">
+            <Menu.Item key="5">Option 5</Menu.Item>
+            <Menu.Item key="6">Option 6</Menu.Item>
+            <SubMenu key="sub6" title="Submenu">
+              <Menu.Item key="7">Option 7</Menu.Item>
+              <Menu.Item key="8">Option 8</Menu.Item>
+            </SubMenu>
+          </SubMenu>
         </Menu>
     );
 }

@@ -1,16 +1,20 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './index.css';
-import 'antd/dist/antd.css';
-import './component/ToDoList';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
+import store from './store'
+import 'antd/dist/antd.css';
+import { Row, Col, Input } from 'antd';
 
-//import { TodolistReactStrap } from './component/TodolistReactStrap';
+ReactDOM.render(
+  <Provider store={store}>
+      <App />
+  </Provider>,
+  document.getElementById('root')
+);
 
-ReactDOM.render(<App />, document.getElementById('app'));
-// ReactDOM.render(<ToDoList2 />, document.getElementById('todo'));
-//  ReactDOM.render(<TodolistReactStrap />, document.getElementById('todo'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
